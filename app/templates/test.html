@@ -1,6 +1,5 @@
-{% extends "layout/base.html" %}
-
-{% block content %}
+<html>
+<head>
 <style>
 h1 {
     text-align: center;
@@ -15,15 +14,14 @@ p {
     color: red;
 }
 </style>
-
-  <div id="wrap">
-    <div class="container">
-      <div class="starter-template">
-        <h1>Price Wizard</h1>
-        <p class="lead">
-
+<title>Price Wizard</title>
+  <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.0/css/jquery.dataTables.css">
+</head>
+<body>
+  <h1>Welcome to Price Wizard</h1>
 <br/> 
-<form name="myform" action="http://localhost:5000/landingpage.html" method="GET">
+<br/> 
+<form name="myform" action="http://127.0.0.1:8000/landingpage.html" method="GET">
 <div align="center">
 <p>Select furniture items:</p>
 <select name="itemdropdown">
@@ -48,13 +46,10 @@ p {
  <p>
    <input type='submit' name='Find Price' value='Find Price' />
  </p>
+</div>
+</form>
 
-        </p>
-      </div>
-    </div>
-  </div>
-{% endblock %}
+</body>
+</html>
 
-{% block footer %}
-  {% include "include/footer.html" %}
-{% endblock %}
+
