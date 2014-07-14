@@ -1,0 +1,186 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/scrollYou.css">
+<style>
+.voffset  { margin-top: 50px; }
+</style>
+<style>
+.voffset2  { margin-top: 100px; }
+</style>
+<style>
+.btn.newclass {width:25%; display:block; margin: 0 auto;}
+</style>
+
+<style>
+.btn.nclass {width:15%; display:block; margin: 0 auto;}
+</style>
+
+
+
+<!--<styl
+.btn-circle {
+  width: 120px;
+  heightass {width:25%; display:block; margin: 0 auto;}
+</style>
+ 100px;
+  background:light blue;
+  text-align: center;
+  padding: 10px 0;
+  white-space: normal;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 30px;
+}
+</style>-->
+<script>
+function defaultfn() {
+      $('select[name=itemdropdown]').val("Table");
+      $('select[name=conditiondropdown]').val("Good");
+      $('select[name=branddropdown]').val("IKEA");
+      $('select[name=materialdropdown]').val("Wood");
+      $('select[name=colordropdown]').val("Black");
+      $('.selectpicker').selectpicker('refresh');
+}
+</script>
+
+</style>-->
+
+  <div id="wrap">
+    <div class="container-fluid">
+     <!-- <div class="starter-template">-->
+       <div class="bs-docs-example">
+         <!--<header>-->
+          <!--<img src="header/1024x100.png">-->
+         <!--</header>-->
+        <!--<h1> Wizard</h1>-->
+       
+       
+       <div class="container image-container">
+       
+       <img src="/static/images/pricewizard.png"  class="center-block"  height="600" width="600" alt="header">
+       
+       </div>
+       <!--<h1> Wizard</h1>-->
+       
+       
+<br/> 
+
+
+<!--<form name="myform" action="http://localhost:5000/landingpage.html" method="GET"> -->
+<form name="myform" method="POST">
+<div align="center">
+<div class="container-fluid">
+
+	<div class="row">
+		
+<div align="center">
+<div class="row">
+   <div class="row voffset">     
+<p> <strong>Describe the item that you want to sell on Craigslist</strong></p>
+</div>
+</div>
+<select class="selectpicker" data-style="btn-primary" name="itemdropdown">
+<option value="Category">Category</option>
+<option value="Cabinet">Cabinet</option>
+<option value="Chair">Chair</option>
+<option value="Sofa">Sofa</option>
+<option value="Side Table">Side Table</option>
+<option value="Table">Table</option>
+
+</select>
+
+  
+<select class="selectpicker" data-style="btn-primary" name="conditiondropdown">
+<option value="Condition">Condition</option>
+<option value="Vintage">Vintage</option>
+<option value="New">New</option>
+<option value="Like New">Like New</option>
+<option value="Excellent">Excellent</option>
+<option value="Good">Good</option>
+<option value="Fair">Fair</option>
+
+</select>
+
+
+<select class="selectpicker" data-style="btn-primary" name="branddropdown">
+<option value="Brand">Brand</option>
+<option value="IKEA">IKEA</option>
+<option value="Pottery Barn">Pottery Barn</option>
+<option value="Crate and Barrel">Crate and Barrel</option>
+<option value="Herman Miller">Herman Miller</option>
+<option value="Pier 1 Imports">Pier 1 Imports</option>
+<option value="Target">Target</option>
+<option value="Macy's">Macy's</option>
+<option value="Krause">Krause</option>
+<option value="World Market">World Market</option>
+<option value="Scandinavian Designs">Scandinavian Designs</option>
+<option value="None of the above">None of the above</option>
+</select>
+
+
+<select class="selectpicker" data-style="btn-primary" name="materialdropdown">
+<option value="Material">Material</option>
+<option value="Wood">Wood</option>
+<option value="Glass">Glass</option>
+<option value="Fabric">Fabric</option>
+<option value="Leather">Leather</option>
+<option value="Steel">Steel</option>
+<option value="Plastic">Plastic</option>
+<option value="None of the above">None of the above</option>
+</select>
+
+<select class="selectpicker" data-style="btn-primary" name="colordropdown">
+<option value="Color">Color</option>
+<option value="Blue">Blue</option>
+<option value="Brown">Brown</option>
+<option value="Gray">Gray</option>
+<option value="Black">Black</option>
+<option value="Silver">Silver</option>
+<option value="Tan">Tan</option>
+<option value="Beige">Beige</option>
+<option value="Red">Red</option>
+<option value="White">White</option>
+<option value="None of the above">None of the above</option>
+</select>
+
+</div>
+
+<div class="row">
+
+<div class="row voffset">
+
+<div>
+
+<a<i<button type="button" onclick="defaultfn()" class="btn btn-default btn-warning nclass">Select Default Values</i></button></a>
+</div>
+<div class="row voffset2">
+
+<p><strong> ENTER THE ITEM DESCRIPTION </strong></p> 
+
+
+<button type="submit"  class="btn btn-large btn-primary newclass">Find Best Price to Post</button>
+</div>
+</div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+<!--<div class="footer">
+        <p>
+	    &copy; Brian Boates; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+	    </p>
+      </div>-->
+<!--<div style="padding-bottom:50%;">-->
+ <hr>
+{% block footer %}
+ &copy; Aparupa Das Gupta; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+
+<!-- {% include "include/footer.html" %}-->
+{% endblock %}

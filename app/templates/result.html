@@ -1,0 +1,145 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+        <link rel="stylesheet" type="text/css" href="http://www.lucaongaro.eu/demos/jqcloud/jqcloud.css" />
+        <script type="text/javascript" src="http://www.lucaongaro.eu/demos/jqcloud/jqcloud-1.0.0.min.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="https://github.com/xuanluo/flot-axislabels/blob/master/jquery.flot.axislabels.js"></script>
+        <script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.categories.js"></script>
+{% block head %}
+<link rel="stylesheet" type="text/css" href="static/css/jqcloud.css" />
+{%  endblock %}
+
+<! -- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> -->
+<script type="text/javascript" src="static/js/jqcloud-1.0.4.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+     $("#myCarousel").carousel({
+     interval:false,
+     wrap:true,
+     pause:false});
+});
+</script>
+
+
+<style type="text/css">
+.item{
+height:500px !important;
+}
+.carousel{
+margin-top:100px;
+margin-bottom:100px;
+}
+.carousel-control {
+  &.left, &.right {
+    background-image: none !important;
+    @include reset-filter();
+  }
+}
+</style>
+  <div id="myCarousel" class="carousel slide" data-ride ="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+      <div class="active item">
+      <h2  style="text-align:center"> <strong>{{myresult}} </strong></h2>
+       
+        <div style="text-align:center">
+        <p style="test-align:center"> <strong>Similar items sold in two days:</strong> </p>
+        </div>
+       
+          <table class="table table-striped" style="width:70%; margin:0 auto">
+    <thead>
+        <thead>
+          <tr>
+            <td>CATEGORY</td>
+            <td>PRICE</td>
+            <td>CONDITION</td>
+            <td>BRAND</td>
+            <td>MATERIAL</td>
+            <td>COLOR</td>
+          </tr>
+        </thead>
+    </thead>
+
+   <tbody>
+{% for t in data %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+  </tbody>
+ </table>
+</div>
+
+<div class="item" style="margin:0 auto">
+
+       <h2 style="text-align:center" <strong>Histogram of posted prices for adverts removed in two days:<p class="lead"></strong></p></h2>
+
+        <div id="histogram" style="width:600px;height:300px; margin:0 auto"> </div> 
+      
+ 
+        <script type="text/javascript">
+
+           
+                var dt={{histogram|safe}};
+		$.plot("#histogram", [ dt ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 1,
+					align: "center"
+				}
+			},
+					
+                        xaxis: {
+                               min: -0.5,
+                               mode: 'categories',
+                               //axisLabel: 'Prices',
+                               //axisLabelPadding: 100,
+                               //ticklength:10
+                               },
+                        yaxis: {
+                               axisLabelPadding: 100,
+                               },
+                        grid: {margin:5},
+		});
+        </script>
+
+</div>
+<!-------------------WORD CLOUD--------------->
+<div class="item">
+
+<h2 style="text-align:center"> <p class="lead"><strong>WORD CLOUD FOR SOLD {{myitem}}<strong></p></h2>
+
+
+<div id="wordcloud" style="width:400%; height:400%;margin: 0 auto;"></div>
+    <script type="text/javascript">
+      var word_array={{dict|safe}};
+        $("#wordcloud").jQCloud(word_array);
+    </script>
+</div>       
+</div>
+
+<!-- Carousel nav -->
+<a class="carousel-control left" href="#myCarousel" data-slide="prev">
+<span class="glyphicon glyphicon-chevron-left"></span></a>
+<a class="carousel-control right" href="#myCarousel" data-slide="next">
+<span class="glyphicon glyphicon-chevron-right"></span></a>
+</div>
+</div>
+{% endblock %}
+
+
+
+
+

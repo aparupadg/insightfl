@@ -1,0 +1,139 @@
+from flask import render_template, request
+from app import app, host, port, user, passwd, db
+from app.helpers.database import con_db, query_db
+from app.helpers.filters import format_currency
+import jinja2
+import pymysql 
+
+# To create a database connection, add the following
+# within your view functions:
+# con = con_db(host, port, user, passwd, db)
+#####################################################
+
+import math
+import cPickle as pickle
+import numpy as np
+from sklearn import linear_model
+import csv
+                   
+
+#####################################################
+
+# ROUTING/VIEW FUNCTIONS
+#@app.route('/', methods=['GET', 'POST'])
+#def index():
+ #    Create database connection
+#     con = con_db(host, port, user, passwd, db)
+
+    # Add custom filter to jinja2 env
+#     jinja2.filters.FILTERS['format_currency'] = format_currency
+
+#     var_dict = {
+#          "ID": request.args.get("ID"),
+#          "URL": request.args.get("URL"),
+#          "PRICE": request.args.get("PRICE", '0'),
+#          "DIMENSION": request.args.get("DIMENSION", '0'),
+#          "NUMBER OF PIECES": request.args.get("NUMBER OF PIECES"),
+          
+#          "sort": request.args.get("sort", "DESC")
+#     }
+
+#     Query the database
+#     data = query_db(con, var_dict)
+
+    # Add data to dictionary
+#     var_dict["data"] = data
+
+#     return render_template('result.html', settings=var_dict)
+
+
+
+@app.route('/home', methods=['GET','POST'])
+def home():
+        print "this is a test2"
+	if request.method == 'POST':
+                print "this is a test"
+		myitem = request.form["itemdropdown"]
+		mycond = request.form["conditiondropdown"]
+                mybrand=request.form["branddropdown"]
+             #   mycolor=request.form["colordropdown"]
+                mymaterial=request.form["materialdropdown"]
+		### all sorta analytics here
+                mycolor="Black"  
+                feature = {}
+                for key, val in csv.reader(open("/Users/adas/Desktop/Insight/insightfl/app/feature.csv")):
+                    feature[str(key)] = val
+               
+                condition_code={}
+                #for key, val in csv.reader(open("/Users/adas/Desktop/Insight/insightfl/app/condition_code.csv")):
+                #    condition_code[str(key)EII val
+                condition_code["Good"]=6
+                condition_code["Fair"]=5
+                condition_code["Vintage"]=8
+                condition_code["Gently Used"]=4
+                condition_code["Like New"]=9
+                condition_code["Needs Love"]=2
+                condition_code["Well Used"]=3
+                condition_code["Excellent"]=7
+                condition_code["Fixed-Upper"]=1
+                if myitem=="Table":
+                    model = pickle.load(open("/Users/adas/Desktop/Insight/insightfl/app/regrmodelTable", 'rb'))
+                elif myitem=="Chair":
+                    model = pickle.load(open("/Users/adas/Desktop/Insight/insightfl/app/regrmodelChair", 'rb'))
+             
+                X=[0]*len(feature)
+                ###insert dimension##
+                X[0]=10.5
+                X[1]=20.5
+                X[2]=5.5
+                print ".................CHECK................"
+                print feature["NoP"]
+                X[int(feature["NoP"])]=1
+                X[int(feature["Condition"])]=condition_code[str(mycond)]
+               
+                if str(mybrand) !="None of the above":
+                    X[int(feature[str(mybrand)])]=1
+                if str(mycolor) !="None of the above":
+                    X[int(feature[str(mycolor)])]=1
+                if str(mymaterial) !="None of the above": 
+                    X[int(feature[str(mymaterial)])]=1
+                result = model.predict(X)
+                
+                ############################################      
+                #    Create database connection
+                conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='', 
+                           db='Insight')
+                #con = con_db(host, port, user, passwd, db)
+                cur = conn.cursor()
+                cur.execute(""" SELECT TYPE, COND, PRICE,BRAND,MATERIAL,COLOR,DIMENSION
+                FROM MOVELOOT_DATA
+                WHERE TYPE=%s
+                LIMIT 2;""",myitem)
+                returned_data = cur.fetchall()
+
+                cur.close()
+                conn.close()
+               
+		return render_template('result.html',myresult=result,data=returned_data)
+    # Renders home.html.
+	return render_template('home.html')
+
+
+@app.route('/slides')
+def about():
+    # Renders slides.html.
+    return render_template('slides.html')
+
+
+@app.route('/author')
+def contact():
+    # Renders author.html.
+    return render_template('author.html')
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'), 500

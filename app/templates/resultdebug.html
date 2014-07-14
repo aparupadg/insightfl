@@ -1,0 +1,90 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+        <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud.css" />
+        <script type="text/javascript" src="https://raw.githubusercontent.com/lucaong/jQCloud/master/jqcloud/jqcloud-1.0.4.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+        <script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.categories.js"></script>
+        <script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.categories.js"></script>
+  <div id="wrap">
+      <div class="container-fluid">
+
+	<p> {{myresult}} </p>
+        <div id="histogram" style="width:400px;height:300px"> </div> 
+        
+        <script type="text/javascript">
+
+        //$.plot($("#placeholder"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });   
+                
+         //$(function() {
+ 
+	       var dt= [ ["January", 10], ["February", 8], ["March", 4], ["April", 13], ["May", 17], ["June", 9] ];
+                //var dt=[["15.0", 24], ["69.375", 8], ["123.75", 6], ["178.125", 6], ["232.5", 0], ["286.875", 2], ["341.25", 0], ["395.625", 2]];
+                //var dt=[['15.0', 24], ['69.375', 8], ['123.75', 6], ['178.125', 6], ['232.5', 0], ['286.875', 2], ['341.25', 0], ['395.625', 2]];
+                //var dt={{histogram|safe}};
+		$.plot("#histogram", [ dt ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+
+
+                //$("#wordcloud").jQCloud(word_array);
+	
+		//$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+	//});
+
+        </script>
+        
+
+	<p> Similar item postings removed in two days: </p>                   
+       <br>
+          <table class="table table-striped">
+    <thead>
+        <thead>
+          <tr>
+            <td>ITEM TYPE</td>
+            <td>PRICE</td>
+            <td>CONDITION</td>
+            <td>BRAND</td>
+            <td>MATERIAL</td>
+            <td>COLOR</td>            
+          </tr>
+        </thead>
+    </thead>
+
+   <tbody>
+{% for t in data %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+  </tbody>
+ </table>
+</div>
+</div>
+<div>
+
+
+{% endblock %}
+
+<hr>
+{% block footer %}
+ &copy; Aparupa Das Gupta; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+
+
+<!-- {% include "include/footer.html" %}-->
+{% endblock %}
+
+

@@ -1,0 +1,115 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<style>
+h1 {
+    text-align: center;
+    color: blue;
+} 
+p {
+    text-align: center;
+    color: red;
+} 
+.center {
+    text-align: center;
+    color: red;
+}
+</style>
+
+  <div id="wrap">
+    <div class="container">
+     <!-- <div class="starter-template">-->
+       <div class="bs-docs-example">
+        <h1>Price Wizard</h1>
+        <p class="lead">
+
+<br/> 
+
+
+<!--<form name="myform" action="http://localhost:5000/landingpage.html" method="GET"> -->
+<form name="myform" method="POST">
+<div align="center">
+<div class="container">
+	<div class="row">
+		
+<div align="center">
+<p>Select furniture items:</p>
+<select name="itemdropdown">
+<option value="Table">Table</option>
+<option value="Chair">Chair</option>
+<option value="Desk">Desk</option>
+
+</select>
+<div align="center">
+<p>Choose condition of item:</p>
+<select name="conditiondropdown">
+<option value="Like New">Like New</option>
+<option value="Vintage">Vintage</option>
+<option value="Excellent">Excellent</option>
+<option value="Good">Good</option>
+<option value="Fair">Fair</option>
+<option value="Well Used">Well Used</option>
+<option value="Needs Love">Needs Love</option>
+<option value="Gently Used">Gently Used</option>
+
+
+</select>
+<div align="center">
+<p>Choose brand of item:</p>
+<select name="branddropdown">
+<option value="IKEA">IKEA</option>
+<option value="Big Joe">Big Joe</option>
+<option value="Room & Board">Room and Board</option>
+<option value="Design Within Reach">Design Within Reach</option>
+<option value="Ethan Allen">Ethan Allen</option>
+<option value="West Elm">West Elm</option>
+<option value="None of the above">None of the above</option>
+
+</select>
+<div align="center">
+<p>Choose material of item:</p>
+<select name="materialdropdown">
+<option value="Wood">Wood</option>
+<option value="Cane">Cane</option>
+<option value="Fabric">Fabric</option>
+<option value="Leather">Leather</option>
+<option value="Metal">Metal</option>
+<option value="Plastic">Plastic</option>
+<option value="Glass">Glass</option>
+<option value="Faux">Faux</option>
+<option value="Fiberboard">Fiberboard</option>
+<option value="None of the above">None of the above</option>
+
+
+</select>
+<div align="center">
+<p>Choose color of item:</p>
+<select name="colordropdown">
+<option value="Black">Black</option>
+<option value="White">White</option>
+<option value="Brown">Brown</option>
+<option value="Gray">Gray</option>
+<option value="Green">Green</option>
+<option value="Tan">Tan</option>
+<option value="Red">Red</option>
+<option value="Gold">Gold</option>
+<option value="Natural">Natural</option>
+<option value="Brown">Brown</option>
+<option value="Blue">Blue</option>
+<option value="None of the above">None of the above</option>
+<br/> 
+<br/>
+</select> 
+ <p>
+   <input type='submit' name='Find best price to post' value='Find best price to post' />
+ </p>
+
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+<!--  {% include "include/footer.html" %}-->
+{% endblock %}

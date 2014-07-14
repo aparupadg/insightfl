@@ -1,0 +1,81 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+  <div id="wrap">
+      <div class="container-fluid">
+
+	<p> {{myresult}} </p>
+	<p> Similar items sold in the past: </p>                   
+       <br>
+
+   <!-- <table border="1" style="width:700px">-->
+  <!--  <table class="table table-striped">
+    <thead>
+        <thead>
+          <tr>
+            <td>ITEM TYPE</td>
+            <td>CONDITION</td>
+            <td>PRICE</td>
+            <td>BRAND</td>
+            <td>MATERIAL</td>
+            <td>COLOR</td>
+            <td>DIMENSION</td>
+          </tr>
+        </thead>
+    </thead>
+
+   <tbody>
+{% for t in data %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+  </tbody>
+ </table>-->
+	
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+	<!--<script type="text/javascript">
+
+$(function() {
+
+		var d1 = [];
+		for (var i = 0; i < 14; i += 0.5) {
+			d1.push([i, Math.sin(i)]);
+		}
+
+		var d2 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+
+		// A null signifies separate line segments
+
+		var d3 = [[0, 12], [7, 12], null, [7, 2.5], [12, 2.5]];
+
+		$.plot("#placeholder", [ d1, d2, d3 ]);
+
+		// Add the Flot version string to the footer
+
+		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+	});
+
+	</script>-->
+      </div>
+    </div>
+  </div>
+
+$.plot($("#placeholder"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });
+<div id="placeholder" style="width:600px;height:300px"></div>
+<!--$.plot($("#placeholder"), [ [[0, 0], [1, 1]] ], { yaxis: { max: 1 } });-->
+{% endblock %}
+
+<hr>
+{% block footer %}
+ &copy; Aparupa Das Gupta; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+
+
+<!-- {% include "include/footer.html" %}-->
+{% endblock %}
+
+

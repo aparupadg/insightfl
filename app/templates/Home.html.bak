@@ -1,0 +1,61 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<style>
+h1 {
+    text-align: center;
+    color: blue;
+} 
+p {
+    text-align: center;
+    color: red;
+} 
+.center {
+    text-align: center;
+    color: red;
+}
+</style>
+
+  <div id="wrap">
+    <div class="container">
+      <div class="starter-template">
+        <h1>Price Wizard</h1>
+        <p class="lead">
+
+<br/> 
+<!--<form name="myform" action="http://localhost:5000/landingpage.html" method="GET"> -->
+<form name="myform" method="POST">
+<div align="center">
+<p>Select furniture items:</p>
+<select name="itemdropdown">
+<option value="Table">Table</option>
+<option value="Chair">Chair</option>
+<option value="Desk">Desk</option>
+</select>
+<p>Choose condition of item:</p>
+<select name="conditiondropdown">
+<option value="New">New</option>
+<option value="Like New">Like New</option>
+<option value="Used">Used</option>
+</select>
+<p>Choose material of item:</p>
+<select name="materialdropdown">
+<option value="Table">Wood</option>
+<option value="Chair">Plastic</option>
+<option value="Bed">Metal</option>
+</select>
+<br/> 
+<br/> 
+ <p>
+   <input type='submit' name='Price' value='Price' />
+ </p>
+
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "include/footer.html" %}
+{% endblock %}

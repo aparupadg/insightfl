@@ -1,0 +1,108 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+        <link rel="stylesheet" type="text/css" href="http://www.lucaongaro.eu/demos/jqcloud/jqcloud.css" />
+        <script type="text/javascript" src="http://www.lucaongaro.eu/demos/jqcloud/jqcloud-1.0.0.min.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.js"></script>
+        <script language="javascript" type="text/javascript" src="http://www.flotcharts.org/flot/jquery.flot.categories.js"></script>
+
+<!--<link rel="stylesheet" type="text/css" href="jqcloud.css" />
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="jqcloud-1.0.4.js"></script>
+-->
+
+
+  <div id="wrap">
+      <div class="container-fluid">
+
+	<p> {{myresult}} </p>
+        <div class="span4">
+      
+        </div>
+
+        <div>
+        <p> Similar item postings removed in two days: </p>
+        </div>
+       <br>
+          <table class="table table-striped">
+    <thead>
+        <thead>
+          <tr>
+            <td>ITEM TYPE</td>
+            <td>PRICE</td>
+            <td>CONDITION</td>
+            <td>BRAND</td>
+            <td>MATERIAL</td>
+            <td>COLOR</td>
+          </tr>
+        </thead>
+    </thead>
+
+   <tbody>
+{% for t in data %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+  </tbody>
+ </table>
+
+        <p> HISTOGRAM OF POSTED PRICES FOR ADVERTS REMOVED IN TWO DAYS</p>
+
+        <div id="histogram" style="width:1000px;height:200px;"> </div> 
+       
+        <script type="text/javascript">
+
+           
+                var dt={{histogram|safe}};
+		$.plot("#histogram", [ dt ], {
+			series: {
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+        </script>
+        <div class="span4">
+      
+        </div>
+         <div class="span4">
+      
+        </div>
+
+
+<!--<div id="example" style="width: 50px; height: 50px;"></div>
+    <script type="text/javascript">
+      var word_array = [
+          {text: "Lorem", weight: 25},
+          {text: "Ipsum", weight: 9},
+          {text: "Dolor", weight: 6},
+          {text: "Sit", weight: 17},
+          {text: "Amet", weight: 5}
+          // ...as many words as you want
+      ];
+        $("#example").jQCloud(word_array);
+    </script>-->
+</div>       
+</div>
+
+{% endblock %}
+
+<hr>
+{% block footer %}
+ &copy; Aparupa Das Gupta; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+
+
+<!-- {% include "include/footer.html" %}-->
+{% endblock %}
+
+

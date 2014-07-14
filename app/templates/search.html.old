@@ -1,0 +1,130 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<head>
+
+<link href="static/clickme_assets/clickme.css" rel="stylesheet">
+<link href="static/clickme_assets/d3_tip.css" rel="stylesheet">
+<link href="static/clickme_assets/chart.css" rel="stylesheet">
+<script src="static/clickme_assets/d3.v3.4.3.js"></script>
+<script src="static/clickme_assets/d3_aux.js"></script>
+<script src="static/clickme_assets/d3_tip.js"></script>
+
+        <style>
+            text{
+                font-family: Rockwell, Helvetica, Arial, sans;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="g-search">
+                <input type="text" placeholder="Search…">
+                <button style="display:none;" class="g-search-clear">X</button>
+        </div>
+        <script type="text/javascript">
+            plot = new_plot({
+                data: [{"x":49,"y":55,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":44,"y":47,"Brand":"Herman Miller","Material":"Wood","Color":"Unknown","point_name":"Herman Miller","radius":5,"color_group":"Vintage"},
+{"x":43,"y":65,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":34,"y":40,"Brand":"Unknown","Material":"Glass","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":32,"y":80,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":28,"y":50,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":27,"y":50,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":26,"y":47,"Brand":"Herman Miller","Material":"Wood","Color":"Unknown","point_name":"Herman Miller","radius":5,"color_group":"Vintage"},
+{"x":24,"y":50,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":19,"y":80,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":6,"y":150,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":3,"y":145,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":1,"y":145,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Vintage"},
+{"x":53,"y":25,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":51,"y":150,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":48,"y":25,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":46,"y":200,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":40,"y":155,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":38,"y":50,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":37,"y":30,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":36,"y":50,"Brand":"IKEA","Material":"Unknown","Color":"Black","point_name":"IKEA","radius":5,"color_group":"Unknown"},
+{"x":33,"y":50,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":31,"y":70,"Brand":"IKEA","Material":"Glass","Color":"White","point_name":"IKEA","radius":5,"color_group":"Unknown"},
+{"x":29,"y":40,"Brand":"Unknown","Material":"Wood","Color":"Red","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":23,"y":20,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":22,"y":115,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":20,"y":70,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":18,"y":10,"Brand":"Unknown","Material":"Unknown","Color":"Gray","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":17,"y":20,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":16,"y":20,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":15,"y":20,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":14,"y":20,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":12,"y":90,"Brand":"IKEA","Material":"Unknown","Color":"Unknown","point_name":"IKEA","radius":5,"color_group":"Unknown"},
+{"x":11,"y":60,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":10,"y":150,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":8,"y":100,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":7,"y":40,"Brand":"IKEA","Material":"Unknown","Color":"Unknown","point_name":"IKEA","radius":5,"color_group":"Unknown"},
+{"x":5,"y":140,"Brand":"Unknown","Material":"Glass","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":4,"y":165,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":2,"y":7,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Unknown"},
+{"x":52,"y":20,"Brand":"Unknown","Material":"Glass","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"New"},
+{"x":50,"y":100,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"New"},
+{"x":30,"y":100,"Brand":"Crate and Barrel","Material":"Unknown","Color":"Red","point_name":"Crate and Barrel","radius":5,"color_group":"New"},
+{"x":9,"y":50,"Brand":"Unknown","Material":"Wood","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"New"},
+{"x":13,"y":70,"Brand":"Unknown","Material":"Unknown","Color":"Black","point_name":"Unknown","radius":5,"color_group":"Like New"},
+{"x":45,"y":75,"Brand":"IKEA","Material":"Unknown","Color":"Unknown","point_name":"IKEA","radius":5,"color_group":"Good"},
+{"x":42,"y":60,"Brand":"IKEA","Material":"Unknown","Color":"BlackBrown","point_name":"IKEA","radius":5,"color_group":"Good"},
+{"x":39,"y":25,"Brand":"Unknown","Material":"Glass","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Good"},
+{"x":35,"y":35,"Brand":"IKEA","Material":"Unknown","Color":"White","point_name":"IKEA","radius":5,"color_group":"Good"},
+{"x":21,"y":20,"Brand":"Unknown","Material":"Unknown","Color":"Silver","point_name":"Unknown","radius":5,"color_group":"Good"},
+{"x":47,"y":75,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Excellent"},
+{"x":41,"y":165,"Brand":"Unknown","Material":"Unknown","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Excellent"},
+{"x":25,"y":750,"Brand":"Unknown","Material":"Fabric","Color":"Unknown","point_name":"Unknown","radius":5,"color_group":"Excellent"}],
+                data_ranges: {"x":[1,53],"y":[7,750]},
+                categorical_domains: {"x":null,"y":null},
+                width: 500,
+                height: 500,
+                padding: {"top":150,"right":400,"bottom":70,"left":100},
+                labels: {
+                    title: "Search for table brand and hover for item details",
+                    subtitle: "",
+                    x_title: "Item Index",
+                    y_title: "Price",
+                    color_title: "Group"
+                },
+                rotate: {
+                    x_title: null,
+                    y_title: true,
+                    x_labels: null,
+                    y_labels: null,
+                },
+                scale_limits: {
+                    x: null,
+                    y: null
+                },
+                jitter: {
+                    x: 0,
+                    y: 0
+                },
+                x_format: null,
+                y_format: null,
+                ordinal_scale_padding: 1,
+                linear_scale_padding: 40
+            });
+
+            distance_between_show_names_and_color_groups = 80;
+            static_radius = 5;
+
+            opacity = 1;
+            stroke_width = 0;
+            show_sidebar = true;
+
+            color_scale = d3.scale.ordinal()
+                                            .domain(["Excellent","Good","Like New","New","Unknown","Vintage"])
+                                            .range(["#24A5F9","#d62728","#ff7f0e","#9467bd","#3CCB23","#E027E4"]);;
+            color_legend_counts = {"Excellent":3,"Good":5,"Like New":1,"New":4,"Unknown":27,"Vintage":13};
+            tooltip_content = function(d) {
+return "<table><tr><td colspan='2' class='tooltip-title'>" + d.point_name + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Item Index</td><td class='tooltip-metric-value'>" + d['x'] + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Price</td><td class='tooltip-metric-value'>" + d['y'] + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Brand</td><td class='tooltip-metric-value'>" + d['Brand'] + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Material</td><td class='tooltip-metric-value'>" + d['Material'] + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Color</td><td class='tooltip-metric-value'>" + d['Color'] + "</td></tr><tr class='tooltip-metric'><td class='tooltip-metric-name'>Group</td><td class='tooltip-metric-value'>" + d['color_group'] + "</td></tr></table>"
+};;
+        </script>
+
+        <script src="static/clickme_assets/Points/plot.js"></script>
+    </body>
+{% endblock %}

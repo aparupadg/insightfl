@@ -1,0 +1,214 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/bootstrap-select.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/scrollYou.css">
+<style>
+h1 {
+    text-align: center;
+    color: blue;
+} 
+p {
+    text-align: center;
+    color: red;
+} 
+.center {
+    text-align: center;
+    color: red;
+}
+</style>
+
+  <div id="wrap">
+    <div class="container-fluid">
+     <!-- <div class="starter-template">-->
+       <div class="bs-docs-example">
+
+        <h1>Price Wizard</h1>
+        <p class="lead">
+
+<br/> 
+
+
+<!--<form name="myform" action="http://localhost:5000/landingpage.html" method="GET"> -->
+<form name="myform" method="POST">
+<div align="center">
+<div class="container-fluid">
+
+	<div class="row">
+		
+<div align="center">
+<!--<p>Select furniture items:</p>
+<select name="itemdropdown">
+<option value="Table">Table</option>
+<option value="Chair">Chair</option>
+<option value="Desk">Desk</option>-->
+
+
+<select class="selectpicker" data-style="btn-primary" name="itemdropdown">
+<option value="Item Type">Item Type</option>
+<option value="Table">Table</option>
+<option value="Chair">Chair</option>
+<option value="Desk">Desk</option>
+</select>
+
+  
+<select class="selectpicker" data-style="btn-primary" name="conditiondropdown">
+<option value="Condition">Condition</option>
+<option value="Vintage">Vintage</option>
+<option value="Excellent">Excellent</option>
+<option value="Good">Good</option>
+<option value="Fair">Fair</option>
+<option value="Well Used">Well Used</option>
+<option value="Needs Love">Needs Love</option>
+<option value="Gently Used">Gently Used</option>
+</select>
+
+
+<select class="selectpicker" data-style="btn-primary" name="branddropdown">
+<option value="Brand">Brand</option>
+<option value="IKEA">IKEA</option>
+<option value="Big Joe">Big Joe</option>
+<option value="Room & Board">Room and Board</option>
+<option value="Design Within Reach">Design Within Reach</option>
+<option value="Ethan Allen">Ethan Allen</option>
+<option value="West Elm">West Elm</option>
+<option value="None of the above">None of the above</option>
+</select>
+
+
+<select class="selectpicker" data-style="btn-primary" name="materialdropdown">
+<option value="Material">Material</option>
+<option value="Wood">Wood</option>
+<option value="Cane">Cane</option>
+<option value="Fabric">Fabric</option>
+<option value="Leather">Leather</option>
+<option value="Metal">Metal</option>
+<option value="Plastic">Plastic</option>
+<option value="Glass">Glass</option>
+<option value="Faux">Faux</option>
+<option value="Fiberboard">Fiberboard</option>
+<option value="None of the above">None of the above</option>
+</select>
+
+
+<!--</select>
+<div align="center">
+<p>Choose condition of item:</p>
+<select name="conditiondropdown">
+<option value="Like New">Like New</option>
+<option value="Vintage">Vintage</option>
+<option value="Excellent">Excellent</option>
+<option value="Good">Good</option>
+<option value="Fair">Fair</option>
+<option value="Well Used">Well Used</option>
+<option value="Needs Love">Needs Love</option>
+
+-->
+
+
+<!--<select class="form-control">-->
+<!--<select name="conditiondropdown">-->
+<!--<option value="Gently Used">Gently Used</option>
+<option value="IKEA">IKEA</option>
+<option value="Big Joe">Big Joe</option>
+<option value="Room & Board">Room and Board</option>
+<option value="Design Within Reach">Design Within Reach</option>
+<option value="Ethan Allen">Ethan Allen</option>
+<option value="West Elm">West Elm</option>
+<option value="None of the above">None of the above</option>
+</select>-->
+
+<!--</select>
+<div align="center">
+<p>Choose brand of item:</p>
+<select name="branddropdown">
+<option value="IKEA">IKEA</option>
+<option value="Big Joe">Big Joe</option>
+<option value="Room & Board">Room and Board</option>
+<option value="Design Within Reach">Design Within Reach</option>
+<option value="Ethan Allen">Ethan Allen</option>
+<option value="West Elm">West Elm</option>
+<option value="None of the above">None of the above</option>
+</select>-->
+
+
+<!--<select class="form-control">
+
+<!--<select name="materialdropdown">-->
+<!--<option value="Wood">Wood</option>
+<option value="Cane">Cane</option>
+<option value="Fabric">Fabric</option>
+<option value="Leather">Leather</option>
+<option value="Metal">Metal</option>
+<option value="Plastic">Plastic</option>
+<option value="Glass">Glass</option>
+<option value="Faux">Faux</option>
+<option value="Fiberboard">Fiberboard</option>
+<option value="None of the above">None of the above</option>
+</select>
+-->
+
+<!--<select class="form-control">-->
+<!--<p>Choose material of item:</p>-->
+<!--<select name="materialdropdown">-->
+<!--<option value="Black">Black</option>
+<option value="White">White</option>
+<option value="Brown">Brown</option>
+<option value="Gray">Gray</option>
+<option value="Green">Green</option>
+<option value="Tan">Tan</option>
+<option value="Red">Red</option>
+<option value="Gold">Gold</option>
+<option value="Natural">Natural</option>
+<option value="Brown">Brown</option>
+<option value="Blue">Blue</option>
+<option value="None of the above">None of the above</option>
+</select>-->
+
+<!--</select>
+<div align="center">
+<p>Choose color of item:</p>
+<select name="colordropdown">
+<option value="Black">Black</option>
+<option value="White">White</option>
+<option value="Brown">Brown</option>
+<option value="Gray">Gray</option>
+<option value="Green">Green</option>
+<option value="Tan">Tan</option>
+<option value="Red">Red</option>
+<option value="Gold">Gold</option>
+<option value="Natural">Natural</option>
+<option value="Brown">Brown</option>
+<option value="Blue">Blue</option>
+<option value="None of the above">None of the above</option>
+<br/> 
+<br/>
+
+</select> -->
+</div>
+<a class="btn btn-large btn-primary" href="/result"><font face="geneva">Find Best Price to Post</font></a>
+<!-- <button type="button" class="btn btn-success">Find Best Price to Post</button>-->
+ </p>
+ <!--  <input type='submit' name='Find Best Price to Post' value='Find best price to post' />-->
+ </p>
+
+        </p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+<!--<div class="footer">
+        <p>
+	    &copy; Brian Boates; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+	    </p>
+      </div>-->
+<!--<div style="padding-bottom:50%;">-->
+ <hr>
+{% block footer %}
+ &copy; Aparupa Das Gupta; <b><a href="http://insightdatascience.com" target="_blank">Insight</a></b> Data Science 2014
+
+<!-- {% include "include/footer.html" %}-->
+{% endblock %}
